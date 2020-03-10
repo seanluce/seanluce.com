@@ -32,9 +32,9 @@ enableEmoji = true
   archive = "archives"
 
 [author]
-  name = "sean.luce"
+  name = "Sean Luce"
   bio = "Doin' tech stuff."
-  job = "Technologist"
+  job = "Sr. Technology Consultant"
   location = "Michigan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "lucesean@gmail.com"
