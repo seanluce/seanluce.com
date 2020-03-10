@@ -29,6 +29,7 @@ After that final step, Netlify automatically detects the changes to my github re
 I can also test locally by invoking Hugo's built in web server: {{< highlight plain-text >}}$ hugo server {{< / highlight >}}
 
 This allows me to easily make sure everything looks good before pushing to build. The entire process is really clean. All of the sites content is stored on github in regular text. It just feels light and airy...like clouds. Cute, fluffy, clouds :cloud:.
+<!--more-->
 
 
 
