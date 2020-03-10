@@ -21,7 +21,7 @@ Hello and welcome! I guess this is seanluce.com 2.0. 3? 4? I've lost count. I fe
 3. ## Write that blog post. (This is usually the difficult bit.)
 4. $ git add *
 5. $ git commit -m "adding a new post"
-6. $ git push</code>
+6. $ git push
 {{< / highlight >}}
 
 After that final step, Netlify automatically detects the changes to my github repo and kicks off the build. Within a few seconds, the new content is live.
