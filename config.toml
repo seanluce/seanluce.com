@@ -88,6 +88,12 @@ enableEmoji = true
   name = "twitter"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
   url = "https://twitter.com/seanluce"
+[[menu.links]]
+  weight = 1
+  identifier = "linkedin"
+  name = "linkedin"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-linkedin\"></i>"
+  url = "https://www.linkedin.com/in/seanluce/"
 
 [[menu.misc]]
   weight = 1
