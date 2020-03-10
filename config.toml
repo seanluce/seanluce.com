@@ -185,7 +185,7 @@ enableEmoji = true
   # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
   # they have to be referred from static root. Example
   # [[params.customJS]]
-  #   src = "js/myscript.js"
+  # src = "js/myscript.js"
 
   # Sharing options
   # Comment and uncomment to enable or disable sharing options

@@ -17,7 +17,7 @@ Hello and welcome! I guess this is seanluce.com 2.0. 3? 4? I've lost count. I fe
 
 {{< highlight plain-text >}}
 1. $ hugo new post/title+of+new+post.md
-2. $ macdown ./post/title+of+new+post.md
+2. $ macdown ./content/post/title+of+new+post.md
 3. ## Write that blog post. (This is usually the difficult bit.)
 4. $ git add *
 5. $ git commit -m "adding a new post"
