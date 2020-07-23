@@ -2,13 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on @seanluce</title>
-    <link>http://seanluce.com/categories/</link>
+    <link>https://www.seanluce.com/categories/</link>
     <description>Recent content in Categories on @seanluce</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 09 Mar 2020 15:57:54 -0400</lastBuildDate>
     
-	<atom:link href="http://seanluce.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.seanluce.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>meta</title>
+      <link>https://www.seanluce.com/categories/meta/</link>
+      <pubDate>Mon, 09 Mar 2020 15:57:54 -0400</pubDate>
+      
+      <guid>https://www.seanluce.com/categories/meta/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

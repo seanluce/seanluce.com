@@ -3,26 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://seanluce.com/</loc>
-    <lastmod>2020-03-09T12:52:18-04:00</lastmod>
+    <loc>https://www.seanluce.com/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://seanluce.com/posts/helloworld/</loc>
-    <lastmod>2020-03-09T12:52:18-04:00</lastmod>
+    <loc>https://www.seanluce.com/tags/blog/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://seanluce.com/posts/</loc>
-    <lastmod>2020-03-09T12:52:18-04:00</lastmod>
+    <loc>https://www.seanluce.com/categories/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://seanluce.com/categories/</loc>
+    <loc>https://www.seanluce.com/2020/03/hello-hugo-and-netlify/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://seanluce.com/tags/</loc>
+    <loc>https://www.seanluce.com/tags/hugo/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.seanluce.com/categories/meta/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.seanluce.com/tags/netlify/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.seanluce.com/post/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.seanluce.com/tags/</loc>
+    <lastmod>2020-03-09T15:57:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.seanluce.com/archives/</loc>
   </url>
   
 </urlset>

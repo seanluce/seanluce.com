@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>@seanluce</title>
-    <link>https://www.seanluce.com/</link>
-    <description>Recent content on @seanluce</description>
+    <title>blog on @seanluce</title>
+    <link>https://www.seanluce.com/tags/blog/</link>
+    <description>Recent content in blog on @seanluce</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Mar 2020 15:57:54 -0400</lastBuildDate>
     
-	<atom:link href="https://www.seanluce.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.seanluce.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

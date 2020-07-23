@@ -1,6 +1,6 @@
 ---
 title: "Hello Hugo and Netlify"
-date: 2020-03-09T15:57:54-04:00
+date: 2020-07-22T15:57:54-04:00
 categories:
 - meta
 tags:
@@ -13,7 +13,7 @@ keywords:
 - netlify
 #thumbnailImage: //example.com/image.jpg
 ---
-Hello and welcome! I guess this is seanluce.com 2.0. 3? 4? I've lost count. I felt like it was time for a frest start. So this is it. A clean slate. With a new start comes a new content platform. I kicked the tires on a few static site generators like [Jekyll](https://jekyllrb.com), [Gatsby](https://www.gatsbyjs.org), and [Pelican](https://blog.getpelican.com) (you can see a pretty exhaustive list at [staticgen.com](https://www.staticgen.com) if you are curious). I eventually landed on [Hugo](https://gohugo.io) for static site generation and [Netlify](https://www.netlify.com) to build, test, and deploy. I am still getting used to the workflow, but it goes something like this:
+Hello and welcome! I guess this is seanluce.com 2.0. 3? 4? I've lost count. I felt like it was time for a fresh start. So this is it. A clean slate. With a new start comes a new content platform. I kicked the tires on a few static site generators like [Jekyll](https://jekyllrb.com), [Gatsby](https://www.gatsbyjs.org), and [Pelican](https://blog.getpelican.com) (you can see a pretty exhaustive list at [staticgen.com](https://www.staticgen.com) if you are curious). I eventually landed on [Hugo](https://gohugo.io) for static site generation and [Netlify](https://www.netlify.com) to build, test, and deploy. I am still getting used to the workflow, but it goes something like this:
 
 {{< highlight plain-text >}}
 1. $ hugo new post/title+of+new+post.md
