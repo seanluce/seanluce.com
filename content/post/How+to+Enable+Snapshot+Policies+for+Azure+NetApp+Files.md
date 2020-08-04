@@ -15,7 +15,7 @@ keywords:
 - ransomware
 - azure
 - snapshots
-#thumbnailImage: //example.com/image.jpg
+#thumbnailImage: /img/snapshotthumb.png
 ---
 <img src="/img/anf.svg" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
 <img src="/img/snapshotthumb.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
