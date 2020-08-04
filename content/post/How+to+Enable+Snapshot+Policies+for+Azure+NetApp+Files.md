@@ -15,7 +15,7 @@ keywords:
 - ransomware
 - azure
 - snapshots
-#thumbnailImage: /img/snapshotthumb.png
+thumbnailImage: /img/snapshotthumb.png
 ---
 <img src="/img/anf.svg" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
 <img src="/img/snapshotthumb.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
@@ -44,9 +44,8 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapsh
 {{< / highlight >}}
 
 <img src="/img/snapshotverifyfeature.png" />
-
-The registration process should take about ten minutes, but your experience may vary slightly. At this point, you should see the 'Data protection' sub-heading and 'Snapshot policy' menu item within the Azure portal (check out the screen shot below). You are now ready to create your first snapshot policy. Head on over to the official [Azure NetApp Files documentation](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) to get started.
-
+<br>
+The registration process should take about ten minutes, but your experience may vary slightly. At this point, you should see the 'Data protection' sub-heading and 'Snapshot policy' menu item within the Azure portal (take a look at the screen shot below). You are now ready to create your first snapshot policy. Head on over to the official [Azure NetApp Files documentation](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) to get started.   
+<br>
 <img src="/img/snapshotpolicy.png" />
-
-
+<!--more-->

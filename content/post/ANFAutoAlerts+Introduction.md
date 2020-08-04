@@ -17,7 +17,7 @@ keywords:
 - azure
 - netapp
 - files
-#thumbnailImage: /img/logicapp.svg
+thumbnailImage: /img/logicapp.svg
 ---
 <img src="/img/anf.svg" height="80" align="left" style="margin: 0px 20px 0px 0px;" /><img src="/img/logicapp.svg" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
 
