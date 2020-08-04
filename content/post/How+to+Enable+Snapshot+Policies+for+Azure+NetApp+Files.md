@@ -45,7 +45,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapsh
 
 <img src="/img/snapshotverifyfeature.png" />
 
-The registration process should take about ten minutes, but your experience may vary slightly. At this point, you should see the 'Data protection' sub-heading and 'Snapshot policy' menu item within the Azure portal (check out the screen shot below). At this point, you are ready to create your first snapshot policy. Head on over to the official [Azure NetApp Files documentation](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) to get started.
+The registration process should take about ten minutes, but your experience may vary slightly. At this point, you should see the 'Data protection' sub-heading and 'Snapshot policy' menu item within the Azure portal (check out the screen shot below). You are now ready to create your first snapshot policy. Head on over to the official [Azure NetApp Files documentation](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) to get started.
 
 <img src="/img/snapshotpolicy.png" />
 
