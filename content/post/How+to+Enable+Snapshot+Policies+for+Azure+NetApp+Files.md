@@ -21,7 +21,7 @@ keywords:
 <img src="/img/snapshotthumb.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
 Snapshot policies are here! Until today, if you wanted to schedule or automate the creation (and retention) of snapshots in the Azure NetApp Files service, you needed to BYOA (bring your own automation). Like any first-party Azure service, ANF supports all of the standard Azure APIs and automation tools, so this wasn't terribly difficult and there was even a [Logic App](https://github.com/ANFTechTeam/anfScheduler) that was simple to deploy and took care of the heavy lifting.
 
-But of course, Microsoft and NetApp continue to bring new features and more value to this great service. There is one tiny caveat... at this time, the snapshot policy feature is currently in preview. But don't worry, the registration process is painless. We'll have you creating snapshot polcies in just a few minutes.
+But of course, Microsoft and NetApp continue to bring new features and more value to this great service. There is one tiny caveat... at this time, the snapshot policy feature is currently in preview. But don't worry, the registration process is painless. We'll have you creating snapshot policies in just a few minutes.
 
 As a prerequisite, you'll need Azure PowerShell installed and connected to your Azure account:
 {{< highlight powershell >}}
