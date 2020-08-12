@@ -19,6 +19,8 @@ keywords:
 - api
 #thumbnailImage: //example.com/image.jpg
 ---
+<img src="/img/anfinsomnia.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
+
 Hello and welcome to the first post in a three part series that will help you get up and running with the Azure REST API. More specifically I'll show you how to use the Azure API to interact with your Azure NetApp Files resources.
 
 Getting started with REST APIs can be a little tricky. There are several components to a REST API call. Combine that with the various types of authentication and things can get pretty overwhelming. Microsoft has chosen to use what is called 'bearer token' as the authentication method for their Azure Management API.
