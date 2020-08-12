@@ -1,6 +1,6 @@
 ---
 title: "Insomnia? REST with Azure NetApp Files Part 1 of 3"
-date: 2020-05-07T14:11:24-04:00
+date: 2020-08-12T09:35:43-04:00
 categories:
 - azure
 - azure netapp files
