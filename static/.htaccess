@@ -1,2 +1,3 @@
 RewriteEngine On
 RedirectMatch 301 ^/feed(.*)$ https://www.seanluce.com/index.xml
+RewriteRule ^sub/ /index.xm[b]l?[/b] [R=301,L]
