@@ -1,0 +1,2 @@
+RewriteEngine On
+RedirectMatch 301 ^/feed(.*)$ https://www.seanluce.com/index.xml
