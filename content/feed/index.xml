@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>@seanluce</title>
+    <link>https://www.seanluce.com/</link>
+    <description>Recent content on @seanluce</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Mar 2020 15:57:54 -0400</lastBuildDate>
+    
+	<atom:link href="https://www.seanluce.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello Hugo and Netlify</title>
+      <link>https://www.seanluce.com/2020/03/hello-hugo-and-netlify/</link>
+      <pubDate>Mon, 09 Mar 2020 15:57:54 -0400</pubDate>
+      
+      <guid>https://www.seanluce.com/2020/03/hello-hugo-and-netlify/</guid>
+      <description>&lt;p&gt;Hello and welcome! I guess this is seanluce.com 2.0. 3? 4? I&amp;rsquo;ve lost count. I felt like it was time for a frest start. So this is it. A clean slate. With a new start comes a new content platform. I kicked the tires on a few static site generators like &lt;a href=&#34;https://jekyllrb.com&#34;&gt;Jekyll&lt;/a&gt;, &lt;a href=&#34;https://www.gatsbyjs.org&#34;&gt;Gatsby&lt;/a&gt;, and &lt;a href=&#34;https://blog.getpelican.com&#34;&gt;Pelican&lt;/a&gt; (you can see a pretty exhaustive list at &lt;a href=&#34;https://www.staticgen.com&#34;&gt;staticgen.com&lt;/a&gt; if you are curious). I eventually landed on &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; for static site generation and &lt;a href=&#34;https://www.netlify.com&#34;&gt;Netlify&lt;/a&gt; to build, test, and deploy. I am still getting used to the workflow, but it goes something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-plain-text&#34; data-lang=&#34;plain-text&#34;&gt;1. $ hugo new post/title+of+new+post.md
+2. $ macdown ./content/post/title+of+new+post.md
+3. ## Write that blog post. (This is usually the difficult bit.)
+4. $ git add *
+5. $ git commit -m &amp;#34;adding a new post&amp;#34;
+6. $ git push&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After that final step, Netlify automatically detects the changes to my github repo and kicks off the build. Within a few seconds, the new content is live.&lt;/p&gt;
+&lt;p&gt;I can also test locally by invoking Hugo&amp;rsquo;s built in web server: &lt;pre&gt;&lt;code class=&#34;language-plain-text&#34; data-lang=&#34;plain-text&#34;&gt;$ hugo server &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;This allows me to easily make sure everything looks good before pushing to build. The entire process is really clean. All of the sites content is stored on github in regular text. It just feels light and airy&amp;hellip;like clouds. Cute, fluffy, clouds ☁️.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

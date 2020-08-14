@@ -1,3 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
-RedirectMatch 301 /feed(.*) /index.xml
