@@ -37,7 +37,7 @@ Before we create our query, we'll need to add two variables to our environment d
 
 Add a comma to the very end of the line preceding your closing curly bracket '}' followed by two additional lines defining your 'subId' and 'anfRg' variables. Sample code below to cut and paste in to your JSON code block:
 
-```json
+```sh
 ,
  "subId": "44444444-4444-4444-4444-444444444444",
  "anfRg": "SouthC.rg"
