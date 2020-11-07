@@ -17,7 +17,6 @@ keywords:
 - anf
 - rest
 - api
-draft: true
 #thumbnailImage: //example.com/image.jpg
 ---
 <img src="/img/anfinsomnia.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
