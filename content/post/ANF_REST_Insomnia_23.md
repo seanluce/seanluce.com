@@ -1,6 +1,6 @@
 ---
 title: "Insomnia? REST with Azure NetApp Files: Part 2 of 3"
-date: 2020-11-10T09:35:43-04:00
+date: 2020-11-4T09:35:43-04:00
 categories:
 - azure
 - azure netapp files
@@ -17,6 +17,7 @@ keywords:
 - anf
 - rest
 - api
+draft: true
 #thumbnailImage: //example.com/image.jpg
 ---
 <img src="/img/anfinsomnia.png" height="80" align="left" style="margin: 0px 20px 0px 0px;" />
