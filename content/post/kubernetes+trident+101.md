@@ -107,8 +107,6 @@ Ok, let's dive in!
 
 #### Install Trident using the 'Trident Operator' method
 
-<img src="/img/trident.png" height="100" />
-
 I encourage you to go read the official documentation [here](https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/deploying/operator-deploy.html#deploying-with-the-trident-operator). I have summarized the commands below.
 
 1. Download the Trident installer bundle
