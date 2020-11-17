@@ -111,69 +111,69 @@ I encourage you to go read the official documentation [here](https://netapp-trid
 
 1. Download the Trident installer bundle
 
-   ```sh
-   wget https://github.com/NetApp/trident/releases/download/v20.10.0/trident-installer-20.10.0.tar.gz
-   ```
+      ```sh
+      wget https://github.com/NetApp/trident/releases/download/v20.10.0/trident-installer-20.10.0.tar.gz
+      ```
 
 2. Extract the bundle
 
-   ```sh
-   tar -xf trident-installer-20.10.0.tar.gz
-   ```
+      ```sh
+      tar -xf trident-installer-20.10.0.tar.gz
+      ```
 
 3. Change directory to the trident-installer
 
-   ```sh
-   cd trident-installer
-   ```
+      ```sh
+      cd trident-installer
+      ```
 
 4. Deploy the TridentProvisioner Custom Resource Definition (CRD)
 
-   ```sh
-   kubectl create -f deploy/crds/trident.netapp.io_tridentprovisioners_crd_post1.16.yaml
-   ```
+      ```sh
+      kubectl create -f deploy/crds/trident.netapp.io_tridentprovisioners_crd_post1.16.yaml
+      ```
 
-   It should look like this so far:
-   ![Install Trident CRD](/img/aks101_installtrident.png)
+      It should look like this so far:
+      ![Install Trident CRD](/img/aks101_installtrident.png)
 
 5. Create the Trident namespace
 
-   ```sh
-   kubectl apply -f deploy/namespace.yaml
-   ```
+      ```sh
+      kubectl apply -f deploy/namespace.yaml
+      ```
 
-   ![Install Trident Operator](/img/aks101_installoperator.png)
+      ![Install Trident Operator](/img/aks101_installoperator.png)
 
 6. Deploy the Trident operator to the default 'trident' namespace
 
-   ```sh
-   kubectl apply -f deploy/bundle.yaml
-   ```
+      ```sh
+      kubectl apply -f deploy/bundle.yaml
+      ```
 
-   ![Install Trident CRD](/img/aks101_installtridentbundle.png)
+      ![Install Trident CRD](/img/aks101_installtridentbundle.png)
 
 7. Confirm the Trident operator is installed and running
 
-   ```sh
-   kubectl get deployment -n trident
-   kubectl get pod -n trident
-   ```
+      ```sh
+      kubectl get deployment -n trident
+      kubectl get pod -n trident
+      ```
 
-   ![Confirm Trident Operator Install](/img/aks101_confirmtridentinstall.png)
+      ![Confirm Trident Operator Install](/img/aks101_confirmtridentinstall.png)
 
 8. Create the TridentProvisioner Custom Resource (CR) to install Trident
 
-   ```sh
-   kubectl create -f deploy/crds/tridentprovisioner_cr.yaml
-   ```
+      ```sh
+      kubectl create -f deploy/crds/tridentprovisioner_cr.yaml
+      ```
 
-   ![Install Trident Custom Resource](/img/aks101_tridentprovisioner.png)
+      ![Install Trident Custom Resource](/img/aks101_tridentprovisioner.png)
 
 9. Finally, copy 'tridentctl' to a directory in your $PATH (i.e., '/usr/local/bin')
 
-   ```sh
-   sudo cp ./tridentctl /usr/local/bin
-   ```
+      ```sh
+      sudo cp ./tridentctl /usr/local/bin
+      ```
 
 ### Clone my 'ANF_Trident_AKS' GitHub Repository
 
@@ -181,28 +181,28 @@ This repo has some boiler plate code that we will modify to demostrate Trident i
 
 1. From your Linux workstation, go back to your home directory
 
-   ```sh
-   cd ~
-   ```
+      ```sh
+      cd ~
+      ```
 
 2. Clone the 'ANF_Trident_AKS' Repository and change directory to 'ANF_Trident_AKS'
 
-   ```sh
-   git clone https://github.com/seanluce/ANF_Trident_AKS.git
-   cd ANF_Trident_AKS
-   ```
+      ```sh
+      git clone https://github.com/seanluce/ANF_Trident_AKS.git
+      cd ANF_Trident_AKS
+      ```
 
 ### Create an Azure Service Principal
 
 1. The service principal is how Trident communicates with Azure to manipulate your Azure NetApp Files resources.
 
-```sh
-az ad sp create-for-rbac --name "http://netapptrident"
-```
+      ```sh
+      az ad sp create-for-rbac --name "http://netapptrident"
+      ```
 
-The output should look like this:
+      The output should look like this:
 
-![Create SPN](/img/aks101_serviceprincipal.png)
+      ![Create SPN](/img/aks101_serviceprincipal.png)
 
 ### Create your Trident backend for Azure NetApp Files
 
