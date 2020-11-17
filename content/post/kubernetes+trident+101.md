@@ -1,6 +1,6 @@
 ---
 title: "Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes"
-date: 2020-11-15T15:46:47-04:00
+date: 2020-11-16T03:46:47-04:00
 categories:
 - azure netapp files
 - kubernetes
@@ -14,9 +14,11 @@ keywords:
 - azure
 - anf
 - trident
-draft: true
+draft: false
 #thumbnailImage: //example.com/image.jpg
 ---
+<img src="/img/anftridentk8s.png" height="300" />
+
 My eleven year old daughter recently asked me 'the question'. You know the one...
 
 ### "Hey dadda, what's Kubernetes?"
@@ -25,7 +27,7 @@ How do you explain kubernetes to an eleven year old?! Check out [this video](htt
 
 I am not a Kubernetes expert. I am learning, probably just like you are. Creating resources, tearing down resources, building them again, kubectl-ing, scratching my head, scratching my head some more, rinse and repeat. I can understand how powerful it is. I can also understand how complex it is.  
 
-As an engineer, I am constantly trying to distill complex things down to their simpliest form. I figure out how to do something by reading documentation, blogs, dissecting code, and a humorous amount of trial and error. If I don't distill this information and document it, I'll have to do it all over again in a few months as my memory is just awful. I do enjoy this process, and I hope these types of posts can help you get to where you are going a tiny bit faster.
+As an engineer, I am constantly trying to distill complex things down to their simplest form. I figure out how to do something by reading documentation, blogs, dissecting code, and a humorous amount of trial and error. If I don't distill this information and document it, I'll have to do it all over again in a few months as my memory is just awful. I do enjoy this process, and I hope these types of posts can help you get to where you are going a tiny bit faster.
 
 ### If you want to deploy or demonstrate dymamically provisioned, persistent storage without being a Kubernetes expert, this is the post for you.
 
@@ -35,6 +37,8 @@ Let's start with some basic definitions:
   2. [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/?ef_id=c1df9981644913634f44c626217fb44d:G:s&OCID=AID2100365_SEM_c1df9981644913634f44c626217fb44d:G:s&msclkid=c1df9981644913634f44c626217fb44d) (AKS); a fully managed Kubernetes cluster service provided by Microsoft
   3. [NetApp Trident](https://netapp-trident.readthedocs.io/en/stable-v20.10/); dynamic, persistent, storage orchestrator for Kubernetes (or Docker)
   4. [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp/); lightning fast, enterprise grade, file storage service (NFS/SMB) provided by Microsoft
+
+At the end of this tutorial you will have deployed AKS, installed NetApp Trident, configured a Trident backend to dynamically provision Azure NetApp Files volumes, and have a running nginx deployment being served by Azure NetApp Files storage.
 
 Before we dive in... You will need a Linux operating system to interact with Trident (tridentctl). I am using an Ubuntu VM running in Azure. You could use the Windows Subsystem for Linux or any Linux distro on the supported host operating systems list found [here](https://netapp-trident.readthedocs.io/en/stable-v20.10/support/requirements.html).
 
@@ -68,7 +72,7 @@ Ok, let's dive in!
 1. Navigate to your NetApp account, click on 'Capacity pools', click '+Add pool', give it a name, choose 'Standard' for the service level, leave the QoS type as Auto. Click 'Create'.
 ![AKS Add Pool](/img/aks101_newpool.png)
 
-#### Install 'kubectl' and the Azure CLI on your workstation
+#### Install 'kubectl' and the Azure CLI on your Ubuntu VM (or WSL)
 
    1. [Install 'kubectl'](https://kubernetes.io/docs/tasks/tools/install-kubectl/):
 
@@ -102,6 +106,8 @@ Ok, let's dive in!
       ![Verify AKS](/img/aks101_verifyconnect.png)
 
 #### Install Trident using the 'Trident Operator' method
+
+<img src="/img/trident.png" height="100" />
 
 I encourage you to go read the official documentation [here](https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/deploying/operator-deploy.html#deploying-with-the-trident-operator). I have summarized the commands below.
 
@@ -205,9 +211,9 @@ The output should look like this:
 1. Using your preferred text editor, complete the following fields inside the 'anf_backend.json' file:
 
    * subscriptionID: your Azure Subscription ID
-   * tenantID: your Azure Tenant ID (from the output of 'az ad sp' in the prvious step)
-   * clientID: your appID (from the output of 'az ad sp' in the prvious step)
-   * clientSecret: your 'password' (from the output of 'az ad sp' in the prvious step)
+   * tenantID: your Azure Tenant ID (from the output of 'az ad sp' in the previous step)
+   * clientID: your appID (from the output of 'az ad sp' in the previous step)
+   * clientSecret: your 'password' (from the output of 'az ad sp' in the previous step)
    * location: the location of your Azure NetApp Files capacity pool
    * serviceLevel: the service level of your Azure NetApp Files capacity pool
    * virtualNetwork: the virtual network that was created by AKS
@@ -290,19 +296,25 @@ The output should look like this:
 
    ![Get Pod Name](/img/aks101_getpodname.png)
 
-4. Set permissions on our Azure NetApp Files volume. Our volume is nounted via NFSv3 to our pod's '/usr/share/nginx/html' directory. The permissions on this folder need to be '755'. Replace 'nginx-anf-trident-668d8ccd96-xcbqk' with your pod name from the previous step.
+4. Assign your pod name to an environment variable to save some key strokes
 
    ```sh
-   kubectl exec -it nginx-anf-trident-668d8ccd96-xcbqk -- chmod 755 /usr/share/nginx/html
+   pod=<paste your pod name from step 3 above here>
    ```
 
-5. Copy our custom 'index.html' file to your pod's '/usr/share/nginx/html' directory.
+5. Set permissions on our Azure NetApp Files volume. Our volume is nounted via NFSv3 to our pod's '/usr/share/nginx/html' directory. The permissions on this folder need to be '755'.
 
    ```sh
-   kubectl cp ./index.html nginx-anf-trident-668d8ccd96-xcbqk:/usr/share/nginx/html/
+   kubectl exec -it $pod -- chmod 755 /usr/share/nginx/html
    ```
 
-6. Point your web browser to your deployment's 'EXTERNAL-IP' from step 2. You should be greeted with our custom index.html.
+6. Copy our custom 'index.html' file to your pod's '/usr/share/nginx/html' directory.
+
+   ```sh
+   kubectl cp ./index.html $pod:/usr/share/nginx/html/
+   ```
+
+7. Point your web browser to your deployment's 'EXTERNAL-IP' from step 2. You should be greeted with our custom index.html.
 
 ![Welcome to ANF](/img/aks101_welcometoanf.png)
 
@@ -342,7 +354,7 @@ The output should look like this:
 
 ### Cleaning Up
 
-1. . Delete your Kubernetes service (external IP address)
+1. Delete your Kubernetes service (external IP address)
 
    ```sh
    kubectl delete svc nginx-anf-trident
@@ -361,3 +373,5 @@ The output should look like this:
    ```sh
    kubectl delete -f anf_pvc.yaml
    ```
+
+4. Go back to the Azure portal and delete your Azure NetApp Files capacity pool.
