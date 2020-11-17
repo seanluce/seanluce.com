@@ -208,145 +208,145 @@ This repo has some boiler plate code that we will modify to demostrate Trident i
 
 1. Using your preferred text editor, complete the following fields inside the 'anf_backend.json' file:
 
-   * subscriptionID: your Azure Subscription ID
-   * tenantID: your Azure Tenant ID (from the output of 'az ad sp' in the previous step)
-   * clientID: your appID (from the output of 'az ad sp' in the previous step)
-   * clientSecret: your 'password' (from the output of 'az ad sp' in the previous step)
-   * location: the location of your Azure NetApp Files capacity pool
-   * serviceLevel: the service level of your Azure NetApp Files capacity pool
-   * virtualNetwork: the virtual network that was created by AKS
-   * subnet: the Azure NetApp Files delegated subnet
+      * subscriptionID: your Azure Subscription ID
+      * tenantID: your Azure Tenant ID (from the output of 'az ad sp' in the previous step)
+      * clientID: your appID (from the output of 'az ad sp' in the previous step)
+      * clientSecret: your 'password' (from the output of 'az ad sp' in the previous step)
+      * location: the location of your Azure NetApp Files capacity pool
+      * serviceLevel: the service level of your Azure NetApp Files capacity pool
+      * virtualNetwork: the virtual network that was created by AKS
+      * subnet: the Azure NetApp Files delegated subnet
 
-   The file should look similiar to this:
+      The file should look similiar to this:
 
-   ```json
-   {
-      "version": 1,
-      "storageDriverName": "azure-netapp-files",
-      "subscriptionID": "11111111-1111-1111-1111-111111111111",
-      "tenantID": "22222222-2222-2222-2222-222222222222",
-      "clientID": "33333333-3333-3333-3333-333333333333",
-      "clientSecret": "44444444-4444-4444-4444-444444444444",
-      "location": "eastus2",
-      "serviceLevel": "Standard",
-      "virtualNetwork": "aks-vnet-22885919",
-      "subnet": "ANF.sn",
-      "nfsMountOptions": "vers=3,proto=tcp,timeo=600",
-      "limitVolumeSize": "500Gi",
-      "defaults": {
-         "exportRule": "0.0.0.0/0",
-         "size": "200Gi"
+      ```json
+      {
+         "version": 1,
+         "storageDriverName": "azure-netapp-files",
+         "subscriptionID": "11111111-1111-1111-1111-111111111111",
+         "tenantID": "22222222-2222-2222-2222-222222222222",
+         "clientID": "33333333-3333-3333-3333-333333333333",
+         "clientSecret": "44444444-4444-4444-4444-444444444444",
+         "location": "eastus2",
+         "serviceLevel": "Standard",
+         "virtualNetwork": "aks-vnet-22885919",
+         "subnet": "ANF.sn",
+         "nfsMountOptions": "vers=3,proto=tcp,timeo=600",
+         "limitVolumeSize": "500Gi",
+         "defaults": {
+            "exportRule": "0.0.0.0/0",
+            "size": "200Gi"
+         }
       }
-   }
-   ```
+      ```
 
 2. Instruct Trident to create the ANF backend in the 'trident' namespace
 
-   ```sh
-   tridentctl -n trident create backend -f anf_backend.json
-   ```
+      ```sh
+      tridentctl -n trident create backend -f anf_backend.json
+      ```
 
-   ![Create Backend](/img/aks101_createbackend.png)
+      ![Create Backend](/img/aks101_createbackend.png)
 
 ### Create a Kubernetes storage class
 
 1. Instruct Kubernetes to create a [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) that will reference our Trident backend
 
-   ```sh
-   kubectl apply -f anf_sc.yaml
-   ```
+      ```sh
+      kubectl apply -f anf_sc.yaml
+      ```
 
 ### Create a Kubernetes persistent volume claim (PVC)
 
 1. Instruct Kubernetes to create a persistent volume claim
 
-   ```sh
-   kubectl apply -f anf_pvc.yaml
-   ```
+      ```sh
+      kubectl apply -f anf_pvc.yaml
+      ```
 
 2. Verify that Trident has dynamically provisioned an Azure NetApp Files volume. From within the Azure portal you should see that a new Azure NetApp Files volume has been created.
 
-![ANF New Volume](/img/aks101_newvolume.png)
+      ![ANF New Volume](/img/aks101_newvolume.png)
 
 ### Create a Kubernetes deployment that references our persistent volume claim (PVC)
 
 1. Instruct Kubernetes to deployment a simple nginx web server
 
-   ```sh
-   kubectl apply -f nginx_deployment.yaml
-   ```
+      ```sh
+      kubectl apply -f nginx_deployment.yaml
+      ```
 
 2. Instruct Kubernetes to give our nginx deployment a public IP address
 
-   ```sh
-   kubectl expose deployment nginx-anf-trident --port=80 --type=LoadBalancer
-   ```
+      ```sh
+      kubectl expose deployment nginx-anf-trident --port=80 --type=LoadBalancer
+      ```
 
-   ![Expose nginx](/img/aks101_exposenginx.png)
+      ![Expose nginx](/img/aks101_exposenginx.png)
 
-   Notice that only after you 'kubectl expose' does our deployment get a public IP address as shown above in the 'EXTERNAL-IP' column.
+      Notice that only after you 'kubectl expose' does our deployment get a public IP address as shown above in the 'EXTERNAL-IP' column.
 
 3. Get your nginx pod name (it should start with 'nginx-anf-trident')
 
-   ```sh
-   kubectl get pods
-   ```
+      ```sh
+      kubectl get pods
+      ```
 
-   ![Get Pod Name](/img/aks101_getpodname.png)
+      ![Get Pod Name](/img/aks101_getpodname.png)
 
 4. Assign your pod name to an environment variable to save some key strokes
 
-   ```sh
-   pod=<paste your pod name from step 3 above here>
-   ```
+      ```sh
+      pod=<paste your pod name from step 3 above here>
+      ```
 
 5. Set permissions on our Azure NetApp Files volume. Our volume is nounted via NFSv3 to our pod's '/usr/share/nginx/html' directory. The permissions on this folder need to be '755'.
 
-   ```sh
-   kubectl exec -it $pod -- chmod 755 /usr/share/nginx/html
-   ```
+      ```sh
+      kubectl exec -it $pod -- chmod 755 /usr/share/nginx/html
+      ```
 
 6. Copy our custom 'index.html' file to your pod's '/usr/share/nginx/html' directory.
 
-   ```sh
-   kubectl cp ./index.html $pod:/usr/share/nginx/html/
-   ```
+      ```sh
+      kubectl cp ./index.html $pod:/usr/share/nginx/html/
+      ```
 
 7. Point your web browser to your deployment's 'EXTERNAL-IP' from step 2. You should be greeted with our custom index.html.
 
-![Welcome to ANF](/img/aks101_welcometoanf.png)
+      ![Welcome to ANF](/img/aks101_welcometoanf.png)
 
 ### Destroy our Kubernetes deployment and re-deploy
 
 1. Delete your Kubernetes service (external IP address)
 
-   ```sh
-   kubectl delete svc nginx-anf-trident
-   ```
+      ```sh
+      kubectl delete svc nginx-anf-trident
+      ```
 
 2. Delete your Kubernetes nginx deployment
 
-   ```sh
-   kubectl delete -f nginx_deployment.yaml
-   ```
+      ```sh
+      kubectl delete -f nginx_deployment.yaml
+      ```
 
 3. Instruct Kubernetes to deploy your nginx web server again
 
-   ```sh
-   kubectl apply -f nginx_deployment.yaml
-   ```
+      ```sh
+      kubectl apply -f nginx_deployment.yaml
+      ```
 
 4. Instruct Kubernetes to expose your deployment, giving it a public IP address.
 
-   ```sh
-   kubectl expose deployment nginx-anf-trident --port=80 --type=LoadBalancer
-   ```
+      ```sh
+      kubectl expose deployment nginx-anf-trident --port=80 --type=LoadBalancer
+      ```
 
 5. Get your new public IP address
 
-   ```sh
-   kubectl get svc
-   ```
+      ```sh
+      kubectl get svc
+      ```
 
 6. Point your browser to the public IP address and notice that your custom index.html has persisted! Magic.
 
@@ -354,22 +354,22 @@ This repo has some boiler plate code that we will modify to demostrate Trident i
 
 1. Delete your Kubernetes service (external IP address)
 
-   ```sh
-   kubectl delete svc nginx-anf-trident
-   ```
+      ```sh
+      kubectl delete svc nginx-anf-trident
+      ```
 
 2. Delete your Kubernetes nginx deployment
 
-   ```sh
-   kubectl delete -f nginx_deployment.yaml
-   ```
+      ```sh
+      kubectl delete -f nginx_deployment.yaml
+      ```
 
 3. Delete your Azure NetApp Files persistent volume claim (PVC)
 
-   WARNING: This command will instruct Trident to delete the Azure NetApp Files volume.
+      WARNING: This command will instruct Trident to delete the Azure NetApp Files volume.
 
-   ```sh
-   kubectl delete -f anf_pvc.yaml
-   ```
+      ```sh
+      kubectl delete -f anf_pvc.yaml
+      ```
 
 4. Go back to the Azure portal and delete your Azure NetApp Files capacity pool.
