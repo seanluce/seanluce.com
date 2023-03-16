@@ -36,8 +36,8 @@ enableEmoji = true
 
 [author]
   name = "Sean Luce"
-  bio = "Cloud Solutions Architect @NetApp"
-  job = "Cloud Solutions Architect @NetApp"
+  bio = "Technical Marketing Engineer"
+  job = "NetApp"
   location = "Michigan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "lucesean@gmail.com"
@@ -87,6 +87,12 @@ enableEmoji = true
   url = "https://github.com/seanluce"
 [[menu.links]]
   weight = 1
+  identifier = "mastodon"
+  name = "mastodon"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
+  url = "https://hachyderm.io/@seanluce"
+[[menu.links]]
+  weight = 1
   identifier = "twitter"
   name = "twitter"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
@@ -113,7 +119,7 @@ enableEmoji = true
   # dateFormat = "2 January 2006"
 
   # Global keywords configuration. Following keywords will be add to every pages
-  # keywords = ["cloud", "netapp"]
+  # keywords = ["cloud", "netapp", "azure"]
 
   # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
   # You can comment it to disable syntax highlighting
@@ -214,5 +220,5 @@ enableEmoji = true
   #   url = "/#about"
 
   # Customize copyright value "© 2020 <CUSTOMIZATION>. All Rights Reserved"
-  # [params.footer]
-  #   copyright = "<a href=\"https://github.com/seanluce\">seanluce</a>"
+  [params.footer]
+    copyright = "<a href=\"https://github.com/seanluce\">seanluce</a><a rel="me" href="https://hachyderm.io/@seanluce"></a>"
