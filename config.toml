@@ -89,7 +89,7 @@ enableEmoji = true
   weight = 1
   identifier = "mastodon"
   name = "mastodon"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-twitter\"></i>"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-mastodon\"></i>"
   url = "https://hachyderm.io/@seanluce"
 [[menu.links]]
   weight = 1
