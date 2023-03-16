@@ -221,4 +221,4 @@ enableEmoji = true
 
   # Customize copyright value "© 2020 <CUSTOMIZATION>. All Rights Reserved"
   [params.footer]
-    copyright = "<a href=\"https://github.com/seanluce\">seanluce</a><a rel="me" href="https://hachyderm.io/@seanluce"></a>"
+    copyright = "<a href=\"https://github.com/seanluce\">seanluce</a><a rel=\"me\" href=\"https://hachyderm.io/@seanluce\"></a>"
